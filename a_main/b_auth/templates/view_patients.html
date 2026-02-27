@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>view patient</title>
+  
+{% endblock title %}
+
+
+{% block content %}
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Sr</th>
+      <th scope="col">Patient name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Patient age</th>
+      <th scope="col">Contant</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Date & Time</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients%}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{patient.patient_name}}</td>
+      <td>{{patient.address}}</td>
+      <td>{{patient.patient_age}}</td>
+      <td>{{patient.content}}</td>
+      <td>{{patient.gender}}</td>
+      <td>{{patient.time}}</td>
+
+    </tr>
+
+    {%endfor%}
+    
+  </tbody>
+</table>
+
+
+  
+{% endblock content %}

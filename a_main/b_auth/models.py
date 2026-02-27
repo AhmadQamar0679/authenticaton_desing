@@ -17,6 +17,7 @@ class Patients(models.Model):
     gender=models.CharField(max_length=1,choices=choice)
     content=models.CharField(max_length=11)
     address=models.TextField()
+    time=models.DateTimeField(default=timezone.now)
 
 
     def __str__(self):

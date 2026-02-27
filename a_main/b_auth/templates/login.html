@@ -1,13 +1,155 @@
 {% extends "base.html" %}
-
 {% block title %}
-<title>home</title>
-  
+<title>login</title>
+
 {% endblock title %}
 
-
-  
 {% block content %}
-<h1>Login</h1>
+<style>
+    body {
+        background-color: #f0f2f5;
+    }
+
+    .login-wrapper {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-card {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+        max-width: 420px;
+        background: #fff;
+    }
+
+    .login-card h2 {
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .login-card p.subtitle {
+        color: #6c757d;
+        margin-bottom: 30px;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 12px 15px;
+    }
+
+    .input-group-text {
+        border-radius: 10px 0 0 10px;
+        background: #f8f9fa;
+    }
+
+    .btn-login {
+        background-color: #198754;
+        color: white;
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        border: none;
+    }
+
+    .btn-login:hover {
+        background-color: #157347;
+    }
+
+    .divider {
+        text-align: center;
+        color: #adb5bd;
+        margin: 15px 0;
+        position: relative;
+    }
+
+    .divider::before,
+    .divider::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 42%;
+        height: 1px;
+        background: #dee2e6;
+    }
+
+    .divider::before {
+        left: 0;
+    }
+
+    .divider::after {
+        right: 0;
+    }
+</style>
+
+
+
+<div class="login-wrapper">
+    <div class="login-card">
+        <h2>Welcome Back </h2>
+        <p class="subtitle">Login to your Patients account</p>
+
+        <form method="POST" action="#">
+            {% csrf_token %}
+
+            {% if messages %}
+            {{message.tags}}
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages%}
+                {{message}}
+                {% endfor%}
+            </div>
+            {%endif%}
+            <!-- Username -->
+            <div class="mb-3">
+                <label for="username" class="form-label fw-semibold">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" name="username" id="username" class="form-control"
+                        placeholder="Enter your username" required>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="password" class="form-label fw-semibold">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input type="password" name="password" id="password" class="form-control"
+                        placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <!-- Remember me & Forgot password -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="remember">
+                    <label class="form-check-label text-muted" for="remember">Remember me</label>
+                </div>
+                <a href="#" class="text-success text-decoration-none small">Forgot password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="btn-login">Login</button>
+
+            <div class="divider mt-3">or</div>
+
+            <!-- Register Link -->
+            <p class="text-center text-muted mt-3 mb-0">
+                Don't have an account?
+                <a href="/register/" class="text-success fw-semibold text-decoration-none">Register</a>
+            </p>
+
+        </form>
+    </div>
+</div>
+
+
 
 {% endblock content %}
