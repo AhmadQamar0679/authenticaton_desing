@@ -4,6 +4,6 @@ from b_auth import views
 
 
 urlpatterns = [
-    path('',views.home,name='home')
+    path('',views.add_patient,name='home')
     
 ]

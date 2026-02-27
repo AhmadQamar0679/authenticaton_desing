@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,13 +8,17 @@
 
     <!-- Bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
+    {% block title %}
+    <title></title>
+      
+    {% endblock title %}
+    
   </head>
   <body>
-    <h1>Hello, world!</h1>
+  
+   {% block content %}
+     
+   {% endblock content %}
 
-    <!-- Bootstrap JavaScript bundle (includes Popper for dropdowns, popovers, etc.) -->
-    <script src="https://cdn.jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
