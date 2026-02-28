@@ -8,7 +8,7 @@ class Patients(models.Model):
 
 
     patient_name=models.CharField(max_length=100)
-    patient_age=models.IntegerField()
+    patient_age=models.IntegerField(blank=True,null=True)
     choice=[
         ('M','Male'),
         ('F','Femle'),
@@ -16,7 +16,7 @@ class Patients(models.Model):
     ]
     gender=models.CharField(max_length=1,choices=choice)
     content=models.CharField(max_length=11)
-    address=models.TextField()
+    address=models.TextField(blank=True,null=True)
     time=models.DateTimeField(default=timezone.now)
 
 
