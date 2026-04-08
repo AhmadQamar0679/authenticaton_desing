@@ -4,6 +4,7 @@ from . models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 @login_required(login_url='/login/')
 def add_patient(request):
@@ -14,6 +15,8 @@ def add_patient(request):
         gender=data.get('gender')
         content=data.get('content')
         address=data.get('address')
+
+        
 
 
         # print('patient_name:',patient_name)
