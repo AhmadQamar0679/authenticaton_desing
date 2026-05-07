@@ -106,8 +106,12 @@ def register_page(request):
 
         messages.success(request, 'Account successfully created! Please login.')
         return redirect('/login/')
-
     return render(request, 'register.html')
+
+
+
+def patient_recode(request):
+    return render(request,'patient_detail.html')
 def logout_page(request):
     logout(request)
     return redirect('/login/')
