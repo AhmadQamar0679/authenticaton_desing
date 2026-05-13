@@ -11,17 +11,25 @@ class Patients(models.Model):
     patient_age=models.IntegerField(blank=True,null=True)
     choice=[
         ('M','Male'),
-        ('F','Femle'),
+        ('F','Female'),
         ('O','Other')
     ]
     gender=models.CharField(max_length=1,choices=choice)
-    content=models.CharField(max_length=11)
+    contect=models.CharField(max_length=11)
     address=models.TextField(blank=True,null=True)
     time=models.DateTimeField(default=timezone.now)
 
 
     def __str__(self):
         return self.patient_name
+    
+
+class Checkup_history(models.Model):
+    doctor_name=models.CharField(max_length=100)
+    temperature=models.IntegerField()
+    prescription=models.TextField
+    
+
             
 
 
