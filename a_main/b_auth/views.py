@@ -13,7 +13,7 @@ def add_patient(request):
         patient_name=data.get('patient_name')
         patient_age=data.get('patient_age')
         gender=data.get('gender')
-        content=data.get('content')
+        contact=data.get('contact')
         address=data.get('address')
 
         
@@ -30,7 +30,7 @@ def add_patient(request):
             patient_age=patient_age,
             gender=gender,
             address=address,
-            content=content,
+            contact=contact
 
         )
         return redirect('/')
@@ -93,12 +93,12 @@ def register_page(request):
             messages.error(request, 'Username already exists')
             return redirect('/register/')
 
-        # ✅ Pass first_name directly inside create_user
+    #  Pass first_name directly inside create_user
         user = User.objects.create(
             username=username,
             email=email,
             password=password,
-            first_name=first_name,   # ✅ pass here directly to avoid NOT NULL error
+            first_name=first_name,   #  pass here directly to avoid NOT NULL error
         )
         user.save()
         user.set_password(password)

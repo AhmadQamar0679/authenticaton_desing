@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
 EXTERNAL_APPS=[
     'b_auth',
+    'project_info',
     "django_browser_reload",
 
 ]

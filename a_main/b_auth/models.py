@@ -15,7 +15,7 @@ class Patients(models.Model):
         ('O','Other')
     ]
     gender=models.CharField(max_length=1,choices=choice)
-    contect=models.CharField(max_length=11)
+    contact=models.CharField(max_length=11)
     address=models.TextField(blank=True,null=True)
     time=models.DateTimeField(default=timezone.now)
 
